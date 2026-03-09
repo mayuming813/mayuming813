@@ -1,0 +1,38 @@
+[project]
+name = "web3-test-suite"
+version = "0.1.0"
+description = "Web3 测试工程：智能合约单元测试、钱包 UI 自动化、链上接口测试、数据一致性检查"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "web3>=6.0.0",
+    "eth-account>=0.10.0",
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "playwright>=1.40.0",
+    "requests>=2.28.0",
+    "python-dotenv>=1.0.0",
+    "pyyaml>=6.0",
+    "deepdiff>=6.0.0",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+pythonpath = ["."]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
+markers = [
+    "unit: 智能合约单元测试",
+    "api: 链上/ RPC 接口测试",
+    "ui: 钱包 UI 自动化",
+    "consistency: 数据一致性检查",
+]
+
+[tool.coverage.run]
+source = ["src"]
+omit = ["tests/*", "**/__pycache__/*"]
+
+[tool.coverage.report]
+exclude_lines = ["pragma: no cover", "def __repr__"]

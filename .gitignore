@@ -1,0 +1,42 @@
+# 环境与构建
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# 配置与密钥（勿提交真实私钥）
+.env
+config/env.yaml
+*.pem
+*.key
+
+# 测试与覆盖率
+.pytest_cache/
+.coverage
+htmlcov/
+allure-results/
+allure-report/
+playwright-report/
+test-results/
+
+# 测试结果输出（保留 log/ 目录结构，忽略生成文件）
+log/**/*.xml
+log/**/*.html
+log/**/*.txt
+log/**/*.log
+
+# IDE 与系统
+.idea/
+.vscode/
+*.swp
+.DS_Store
+__pycache__/
+*.py[cod]
+
+# 合约构建产物（Python 编译产出）
+contracts/artifacts/
+contracts/cache/
+contracts/build/

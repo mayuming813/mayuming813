@@ -40,3 +40,8 @@ __pycache__/
 contracts/artifacts/
 contracts/cache/
 contracts/build/
+
+# 简历等个人文件（不纳入仓库）
+马玉铭.docx
+马玉铭-简历-优化版.md
+马玉铭-简历-优化版.docx

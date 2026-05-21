@@ -1,0 +1,32 @@
+[
+  {
+    "description": "转账1个代币",
+    "from": "user1",
+    "to": "user2",
+    "amount": "1",
+    "expected_success": true
+  },
+  {
+    "description": "转账10个代币",
+    "from": "user1",
+    "to": "user2",
+    "amount": "10",
+    "expected_success": true
+  },
+  {
+    "description": "转账0个代币（应失败）",
+    "from": "user1",
+    "to": "user2",
+    "amount": "0",
+    "expected_success": false,
+    "expected_error": "金额必须大于0"
+  },
+  {
+    "description": "转账给无效地址（应失败）",
+    "from": "user1",
+    "to": "invalid_address",
+    "amount": "1",
+    "expected_success": false,
+    "expected_error": "无效的地址"
+  }
+]

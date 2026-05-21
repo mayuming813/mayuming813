@@ -1,0 +1,43 @@
+{
+  "name": "web3-auto-test",
+  "version": "1.0.0",
+  "description": "企业级 Web3 测试框架，支持智能合约单元测试、API 测试、RPC 测试、UI 测试和对账功能。",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "example": "examples",
+    "test": "tests"
+  },
+  "scripts": {
+    "compile": "hardhat compile",
+    "deploy": "hardhat run scripts/deploy.js --network hardhat",
+    "deploy:localhost": "hardhat run scripts/deploy.js --network localhost",
+    "node": "hardhat node",
+    "clean": "hardhat clean",
+    "test:hardhat": "hardhat test",
+    "test": "pytest tests/ -v",
+    "test:api": "pytest tests/api/scenarios/ -v",
+    "test:rpc": "pytest tests/rpc/scenarios/ -v",
+    "test:ui": "pytest tests/ui/scenarios/ --headed",
+    "test:unit": "pytest tests/unit/scenarios/ -v",
+    "test:security": "pytest examples/test_security_example.py -v",
+    "check:slither": "python3 -m framework.utils.security_check --contract contracts/ --slither",
+    "check:mythril": "python3 -m framework.utils.security_check --contract contracts/ --mythril",
+    "check:security": "python3 -m framework.utils.security_check --contract contracts/ --all",
+    "check:size": "python3 -m framework.utils.contract_size --artifacts artifacts/contracts/contracts",
+    "check:gas": "python3 -m framework.utils.gas_report --test tests/",
+    "check:all": "npm run check:slither && npm run check:size",
+    "report": "allure serve allure-results",
+    "report:gas": "cat reports/gas/*.txt 2>/dev/null || echo 'No gas reports found'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-ethers": "^4.0.11",
+    "@openzeppelin/contracts": "^5.6.1",
+    "ethers": "^6.16.0",
+    "hardhat": "^3.4.5"
+  },
+  "type": "module"
+}

@@ -1,0 +1,35 @@
+# 用户测试数据
+users:
+  - name: "Alice"
+    email: "alice@example.com"
+    age: 25
+    role: "admin"
+  - name: "Bob"
+    email: "bob@example.com"
+    age: 30
+    role: "user"
+  - name: "Charlie"
+    email: "charlie@example.com"
+    age: 35
+    role: "user"
+
+# 有效用户
+valid_users:
+  - username: "testuser1"
+    password: "Test@1234"
+    expected_status: 200
+  - username: "testuser2"
+    password: "Test@5678"
+    expected_status: 200
+
+# 无效用户
+invalid_users:
+  - username: ""
+    password: "Test@1234"
+    expected_error: "用户名不能为空"
+  - username: "testuser"
+    password: ""
+    expected_error: "密码不能为空"
+  - username: "invalid"
+    password: "wrong"
+    expected_error: "用户名或密码错误"

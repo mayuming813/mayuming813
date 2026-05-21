@@ -1,38 +1,52 @@
-[project]
-name = "web3-test-suite"
-version = "0.1.0"
-description = "Web3 测试工程：智能合约单元测试、钱包 UI 自动化、链上接口测试、数据一致性检查"
-readme = "README.md"
-requires-python = ">=3.10"
-dependencies = [
-    "web3>=6.0.0",
-    "eth-account>=0.10.0",
-    "pytest>=7.0.0",
-    "pytest-asyncio>=0.21.0",
-    "playwright>=1.40.0",
-    "requests>=2.28.0",
-    "python-dotenv>=1.0.0",
-    "pyyaml>=6.0",
-    "deepdiff>=6.0.0",
-]
-
+# Pytest 配置文件
 [tool.pytest.ini_options]
-asyncio_mode = "auto"
+# 测试目录
 testpaths = ["tests"]
-pythonpath = ["."]
-python_files = ["test_*.py"]
-python_functions = ["test_*"]
-addopts = "-v --tb=short"
+
+# 命令行选项
+addopts = """
+    -v
+    --tb=short
+    --strict-markers
+    --alluredir=allure-results
+    --clean-alluredir
+    -n auto
+"""
+
+# 标记定义
 markers = [
-    "unit: 智能合约单元测试",
-    "api: 链上/ RPC 接口测试",
-    "ui: 钱包 UI 自动化",
-    "consistency: 数据一致性检查",
+    "unit: 单元测试",
+    "integration: 集成测试",
+    "api: 接口测试",
+    "ui: UI 测试",
+    "data: 数据一致性测试",
+    "smoke: 冒烟测试",
+    "regression: 回归测试",
+    "slow: 慢速测试",
 ]
 
-[tool.coverage.run]
-source = ["src"]
-omit = ["tests/*", "**/__pycache__/*"]
+# 日志配置
+log_cli = true
+log_cli_level = "INFO"
+log_cli_format = "%(asctime)s [%(levelname)s] %(message)s"
+log_cli_date_format = "%Y-%m-%d %H:%M:%S"
 
-[tool.coverage.report]
-exclude_lines = ["pragma: no cover", "def __repr__"]
+# 超时设置
+timeout = 300
+
+# 失败重试
+reruns = 1
+reruns_delay = 2
+
+# Playwright 配置
+[tool.playwright]
+# 浏览器配置
+browsers = ["chromium"]
+
+[tool.black]
+line-length = 120
+target-version = ['py39']
+
+[tool.isort]
+profile = "black"
+line_length = 120

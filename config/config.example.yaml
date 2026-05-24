@@ -1,0 +1,66 @@
+# 非敏感配置（可提交到仓库）
+# 敏感信息（私钥、密码等）请配置在 .env 文件中
+
+# 测试数据配置
+test_data:
+  default_gas_limit: 3000000
+  default_gas_price: 20000000000
+  timeout: 60
+
+# Allure 报告配置
+allure:
+  results_dir: "allure-results"
+  report_dir: "allure-report"
+
+# 日志配置
+logging:
+  level: "INFO"  # 可被 .env 中的 LOG_LEVEL 覆盖
+  file: "logs/test.log"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+# UI 测试配置
+ui:
+  headless: true  # 无头模式，可通过命令行 --headed 覆盖
+  slow_mo: 100
+  screenshot_on_failure: true  # 失败时自动截图
+  video_on_failure: true  # 失败时保留录屏
+  record_video: true  # 是否录制视频
+  video_size:
+    width: 1920
+    height: 1080
+  trace_on_failure: true  # 失败时保存 trace
+  timeout: 30000  # 默认超时时间（毫秒）
+
+# Pytest 配置
+pytest:
+  workers: auto  # 并发数量
+  reruns: 1  # 失败重试次数
+  reruns_delay: 2  # 重试延迟（秒）
+
+# 重试配置
+retry:
+  max_retries: 3  # 最大重试次数
+  delay: 1.0  # 初始延迟时间（秒）
+  backoff: 2.0  # 延迟时间倍数（指数退避）
+
+# 轮询配置
+polling:
+  timeout: 60.0  # 默认超时时间（秒）
+  interval: 2.0  # 默认轮询间隔（秒）
+  transaction_timeout: 120.0  # 交易轮询超时时间
+  transaction_interval: 3.0  # 交易轮询间隔
+
+# 对账配置
+reconciliation:
+  mode: "realtime"  # 对账模式：realtime/t0/t1
+  retry:
+    max_retries: 3  # 最大重试次数
+    retry_interval: 5  # 重试间隔（秒）
+  polling:
+    timeout: 120.0  # 轮询超时时间（秒）
+    interval: 5.0  # 轮询间隔（秒）
+  report:
+    save_to_file: true  # 是否保存报告到文件
+    report_dir: "reconciliation-reports"  # 报告目录
+    format: "json"  # 报告格式：json/text
+

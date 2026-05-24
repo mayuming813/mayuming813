@@ -41,7 +41,21 @@ contracts/artifacts/
 contracts/cache/
 contracts/build/
 
-# 简历等个人文件（不纳入仓库）
-马玉铭.docx
-马玉铭-简历-优化版.md
-马玉铭-简历-优化版.docx
+# Node.js
+node_modules/
+package-lock.json
+
+# Hardhat
+artifacts/
+cache/
+hardhat.log
+
+# 日志文件
+logs/
+*.log
+
+# 部署记录
+deployments.json
+
+# 报告
+reports/

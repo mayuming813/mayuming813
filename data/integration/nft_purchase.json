@@ -1,0 +1,17 @@
+[
+  {
+    "description": "购买普通 NFT",
+    "token_amount": 10,
+    "nft_id": 1
+  },
+  {
+    "description": "购买稀有 NFT",
+    "token_amount": 50,
+    "nft_id": 2
+  },
+  {
+    "description": "购买史诗 NFT",
+    "token_amount": 100,
+    "nft_id": 3
+  }
+]

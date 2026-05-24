@@ -1,0 +1,7 @@
+recipient_address,amount,expected_result,description
+0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb,1,success,正常转账1个代币
+0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb,10,success,正常转账10个代币
+0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb,100,success,正常转账100个代币
+invalid_address,1,error,无效地址
+0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb,0,error,金额为0
+0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb,-1,error,负数金额
